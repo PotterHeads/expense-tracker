@@ -1,6 +1,7 @@
 import RenderExpense from "./components/Expenses/RenderExpense";
 
 function App() {
+  //fake data
   const expenses = [
     {
       id: "e1",
