@@ -1,4 +1,5 @@
 import RenderExpense from "./components/Expenses/RenderExpense";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 function App() {
   //fake data
@@ -26,7 +27,7 @@ function App() {
 
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense></NewExpense>
       <RenderExpense items={expenses}></RenderExpense>
     </div>
   );
