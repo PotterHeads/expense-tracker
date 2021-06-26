@@ -1,4 +1,4 @@
-import RenderExpense from "./components/RenderExpense";
+import RenderExpense from "./components/Expenses/RenderExpense";
 
 function App() {
   const expenses = [
