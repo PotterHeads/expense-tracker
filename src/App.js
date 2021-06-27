@@ -24,10 +24,13 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
-
+  //expenseData from NewExpense.js
+  const saveExpenseDataHandler = (expenseData) => {
+    console.log(expenseData);
+  };
   return (
     <div>
-      <NewExpense></NewExpense>
+      <NewExpense addNewExpenseData={saveExpenseDataHandler}></NewExpense>
       <RenderExpense items={expenses}></RenderExpense>
     </div>
   );
