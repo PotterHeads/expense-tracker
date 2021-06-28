@@ -5,13 +5,13 @@ import ExpenseFilter from "../NewExpense/ExpenseFilter";
 import { useState } from "react";
 
 function RenderExpense(props) {
-  // set default year to 2020
-  const [filterYear, setFilterYear] = useState("2020");
+  const [filterYear, setFilterYear] = useState("2020"); // set default year to 2020
+
   const onExpenseFilterHandler = (filterValue) => {
     setFilterYear(filterValue);
   };
+
   return (
-    // items refers to expenses in App.js, items is in an object when it is passed from App.js
     <Card className="expenses">
       <div>
         <ExpenseFilter
@@ -20,7 +20,7 @@ function RenderExpense(props) {
         ></ExpenseFilter>
       </div>
       <ExpenseItem
-        date1={props.items[0].date}
+        date1={props.items[0].date} // items refers to expenses in App.js, items is in an object when it is passed from App.js
         title={props.items[0].title}
         amount={props.items[0].amount}
       ></ExpenseItem>

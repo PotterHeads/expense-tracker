@@ -19,7 +19,7 @@ function ExpenseForm(props) {
   };
 
   const onSubmitForm = (e) => {
-    e.preventDefault();
+    e.preventDefault(); //prevent page from refreshing
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
