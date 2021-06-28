@@ -13,27 +13,21 @@ function RenderExpense(props) {
 
   return (
     <Card className="expenses">
-      <div>
-        <ExpenseFilter
-          currentFilter={filterYear}
-          onExpenseFilter={onExpenseFilterHandler}
-        ></ExpenseFilter>
-      </div>
-      <ExpenseItem
-        date1={props.items[0].date} // items refers to expenses in App.js, items is in an object when it is passed from App.js
-        title={props.items[0].title}
-        amount={props.items[0].amount}
-      ></ExpenseItem>
-      <ExpenseItem
-        date1={props.items[1].date}
-        title={props.items[1].title}
-        amount={props.items[1].amount}
-      ></ExpenseItem>
-      <ExpenseItem
-        date1={props.items[2].date}
-        title={props.items[2].title}
-        amount={props.items[2].amount}
-      ></ExpenseItem>
+      <ExpenseFilter
+        currentFilter={filterYear}
+        onExpenseFilter={onExpenseFilterHandler}
+      ></ExpenseFilter>
+      {props.items.map((expenseData) => {
+        return (
+          <ExpenseItem
+            // added key to ensure that each component is unique
+            key={expenseData.id}
+            date1={expenseData.date}
+            title={expenseData.title}
+            amount={expenseData.amount}
+          ></ExpenseItem>
+        );
+      })}
     </Card>
   );
 }
