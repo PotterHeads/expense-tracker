@@ -11,32 +11,40 @@ function RenderExpense(props) {
     setFilterYear(filterValue);
   };
 
+  // expenseData refers to each data in the array
+  const filteredExpense = props.items.filter((expenseData) => {
+    return (
+      expenseData.date.toLocaleString("en-US", { year: "numeric" }) ===
+      filterYear
+    );
+  });
+
+  // toggle between no expenses found and expenses found using array length
+  let displayParagraph = <p>No expenses found</p>;
+  if (filteredExpense.length > 0) {
+    displayParagraph = filteredExpense
+      // using .filter and .map to filter the expenses by year
+      // .map returns all the array of the year using ExpenseItem component
+      .map((expenseData) => {
+        return (
+          <ExpenseItem
+            // added key to ensure that each component is unique
+            key={expenseData.id}
+            date1={expenseData.date}
+            title={expenseData.title}
+            amount={expenseData.amount}
+          ></ExpenseItem>
+        );
+      });
+  }
+
   return (
     <Card className="expenses">
       <ExpenseFilter
         currentFilter={filterYear}
         onExpenseFilter={onExpenseFilterHandler}
       ></ExpenseFilter>
-      {props.items
-        // using .filter and .map to filter the expenses by year
-        .filter((expenseData) => {
-          return (
-            expenseData.date.toLocaleString("en-US", { year: "numeric" }) ===
-            filterYear
-          );
-        })
-        // .map returns all the array of the year using ExpenseItem component
-        .map((expenseData) => {
-          return (
-            <ExpenseItem
-              // added key to ensure that each component is unique
-              key={expenseData.id}
-              date1={expenseData.date}
-              title={expenseData.title}
-              amount={expenseData.amount}
-            ></ExpenseItem>
-          );
-        })}
+      {displayParagraph}
     </Card>
   );
 }
