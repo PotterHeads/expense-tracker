@@ -22,7 +22,7 @@ function ExpenseForm(props) {
     e.preventDefault(); //prevent page from refreshing
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
     // saveExpenseData function is from NewExpense.js to pass the data to NewExpense

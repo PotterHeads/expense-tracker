@@ -3,6 +3,7 @@ import "./RenderExpense.css";
 import ExpenseFilter from "../NewExpense/ExpenseFilter";
 import { useState } from "react";
 import ExpenseList from "./ExpenseList";
+import ExpenseChart from "./ExpenseChart";
 
 function RenderExpense(props) {
   const [filterYear, setFilterYear] = useState("2020"); // set default year to 2020
@@ -24,6 +25,7 @@ function RenderExpense(props) {
         currentFilter={filterYear}
         onExpenseFilter={onExpenseFilterHandler}
       ></ExpenseFilter>
+      <ExpenseChart items={filteredExpense}></ExpenseChart>
       <ExpenseList items={filteredExpense}></ExpenseList>
     </Card>
   );
