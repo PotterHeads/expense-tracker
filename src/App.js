@@ -33,6 +33,7 @@ function App() {
 
   //expenseData from NewExpense.js
   const saveExpenseDataHandler = (expenseData) => {
+    // current data will be added to prev data
     setNewExpense((prevExpense) => {
       return [expenseData, ...prevExpense];
     });

@@ -28,6 +28,9 @@ function ExpenseForm(props) {
     // saveExpenseData function is from NewExpense.js to pass the data to NewExpense
     props.onSaveExpenseData(expenseData);
 
+    // set the form to go back to the btn page once it is submitted
+    props.btnCancelFunc();
+
     //reset input to empty string after submitting form
     setEnteredTitle("");
     setEnteredAmount("");
@@ -61,6 +64,9 @@ function ExpenseForm(props) {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.btnCancelFunc}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
